@@ -1,0 +1,12 @@
+--- run.sh
++++ run.sh.pre-configure
+@@ -11,6 +11,9 @@
+ fi
+ export NODE_NAME=${NODE_NAME}
+
++# pre-configuration (based on ENV_VARS)
++[ -f "/elasticsearch/thirdparty/pre-configure.sh" ] && /elasticsearch/thirdparty/pre-configure.sh "$BASE"
++
+ # Prevent "Text file busy" errors
+ sync
+
