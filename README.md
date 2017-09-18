@@ -12,6 +12,24 @@ for more information.
 
 Dynamic configuration can be added using environment vars to `/elasticsearch/config/elasticsearch.yml`.
 
+To remove configuration (remove lines based on sed regesp) you can define
+environment vars which name starts with `ES_ELASTIC_DELETE_CONFIG` and the
+value is the regexp to be applied with `sed -re "/_VALUE_/d"`, where `_VALUE_` is
+the value of environment var.
+
+For example to delete `data` from next configuration:
+
+```yaml
+path:
+  data: /data/data
+  logs: /data/log
+```
+
+you can define `ES_ELASTIC_DELETE_CONFIG_ORIGINAL_DATA="data: \/data\/data$"`
+
+`_ORIGINAL_DATA` is ignored and can be used for clarification when define each
+dynamic value.
+
 To add configuration (at end) you can define environment vars which name starts with
 `ES_ELASTIC_CONFIG` and the value will be added at end of the configuration file
 (`elasticsearch.yml`). One variable per line is desired.
