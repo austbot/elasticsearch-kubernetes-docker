@@ -23,6 +23,12 @@ do
   then
     # Adding this content to configuration.
     echo "Adding configuration: \"$value\" to \"$ES_CONFIG_FILE\" from \"$env_var\""
+    # Check if we need resolve configuration with bash
+    if echo "$value" | fgrep -- '$(' > /dev/null
+    then
+      value="$(bash -c "echo $value")"
+      echo "'\$(' found on current configuration resolved to $value"
+    fi
     echo "$value" >> "$ES_CONFIG_FILE"
   fi
 done
