@@ -1,4 +1,4 @@
-FROM quay.io/pires/docker-elasticsearch-kubernetes:5.6.0
+FROM cyberluisda/elasticsearch-kubernetes-base:5.6.0
 MAINTAINER Luis David Barrios (cyberluisda@gmail.com)
 
 #ADDING default ES_HOME
