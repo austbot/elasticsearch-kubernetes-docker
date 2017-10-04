@@ -39,3 +39,12 @@ can define `ES_ELASTIC_CONFIG_DEACTIVATE_ML` with `xpack.ml.enabled: false` valu
 
 `_DEACTIVATE_ML` is ignored and can be used for clarification when define each
 dynamic value.
+
+In same way when environment var contains `$(...)` substrings, some values of
+data will be resolved in-place (using `bash -c echo"...`).
+
+For example if you define
+`ES_ELASTIC_CONFIG_SET_NODENAME="node: $(echo ${HOSTNAME}-)$(echo $RANDOM)"`, then
+`node: HOSTNAME-RANDOM_NUBMER` property will be added to `elasticsearch.yml`
+( `HOSTNAME` will be replaced with host name on container and `RANDOM_NUMBER` will
+be replaced by numeric random value, i.e `node: 4720009b01ba-21683`).
