@@ -1,4 +1,4 @@
-FROM cyberluisda/elasticsearch-kubernetes:5.6.1
+FROM cyberluisda/elasticsearch-kubernetes:5.6.2
 MAINTAINER Luis David Barrios (cyberluisda@gmail.com)
 
 #ADDING default ES_HOME
