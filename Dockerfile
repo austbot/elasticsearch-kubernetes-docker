@@ -1,4 +1,4 @@
-FROM cyberluisda/elasticsearch:5.6.2
+FROM cyberluisda/elasticsearch:5.6.0
 MAINTAINER Luis David Barrios (cyberluisda@gmail.com)
 
 ###
