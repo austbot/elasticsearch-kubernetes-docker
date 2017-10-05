@@ -1,18 +1,12 @@
 # elasticsearch-kubernetes-docker
-Docker image based on https://github.com/pires/docker-elasticsearch-kubernetes with some plugins and customizations
-
-# Plugins added #
-
-`x-pack` plugin is the only one added, but Machine Learning is deactivated because
-it is not compliant with alphine linux (base image). See
-[discussion](https://discuss.elastic.co/t/elasticsearch-failing-to-start-due-to-x-pack/85125/7)
-for more information.
+Docker image forked from https://github.com/pires/docker-elasticsearch-kubernetes
+with some customizations
 
 # Dynamic configuration #
 
 Dynamic configuration can be added using environment vars to `/elasticsearch/config/elasticsearch.yml`.
 
-To remove configuration (remove lines based on sed regesp) you can define
+To remove configuration (remove lines based on `sed` regexp) you can define
 environment vars which name starts with `ES_ELASTIC_DELETE_CONFIG` and the
 value is the regexp to be applied with `sed -re "/_VALUE_/d"`, where `_VALUE_` is
 the value of environment var.
