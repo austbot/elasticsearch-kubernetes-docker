@@ -1,0 +1,10 @@
+--- pre-configure.sh
++++ pre-configure.sh.certs
+@@ -33,5 +33,7 @@
+   fi
+ done
+
++${ES_HOME}/thirdparty/certificates-selfigned.sh "$ES_HOME"
++
+ echo ">>> NEW CONFIG <<<"
+ cat "$ES_CONFIG_FILE"
