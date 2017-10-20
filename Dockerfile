@@ -1,6 +1,4 @@
 FROM cyberluisda/elasticsearch:5.6.2
-MAINTAINER Luis David Barrios (cyberluisda@gmail.com)
-
 ###
 ##-- from upstream ()
 ###
@@ -18,6 +16,7 @@ ENV MEMORY_LOCK false
 
 #ADDING default ES_HOME
 ENV ES_HOME /elasticsearch
+ENV ES_ELASTIC_CONFIG_DEACTIVATE_ML xpack.ml.enabled: false
 
 # Upload files
 RUN mkdir -p ${ES_HOME}/thirdparty
